@@ -1,0 +1,135 @@
+@import "./variable";
+
+.header {
+ position: sticky;
+  top:0;
+  width:100%;
+  background-color: $bg-header-color;
+  z-index:10;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+   
+  }
+  &-logo {
+    margin: 0 70px;
+    padding: 0 20px;
+  }
+  &-menu {
+    display: flex;
+    margin-right: 40px;
+    gap: 94px;
+    li a {
+      color: $text-color;
+    }
+    li:first-child a {
+      color: $text-content-color;
+    }
+  }
+  .menu-icon {
+    display: none;
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in;
+    cursor: pointer;
+    padding:10px 0;
+    &-btn {
+      z-index:3;
+      cursor: pointer;
+      height: 4px;
+      width: 35px;
+      border-radius: 5px;
+      background-color: #333;
+      position: relative;
+      
+      &::after,
+      &::before {
+        position: absolute;
+        content: "";
+        height: 4px;
+        width: 35px;
+        border-radius: 5px;
+        background-color: #333;
+      }
+      &::after {
+        transform: translateY(-12px);
+      }
+      &::before {
+        transform: translateY(12px);
+      }
+    }
+    
+  }
+  .open .menu-icon-btn{
+    transform: translateX(-45px);
+    background-color: transparent;
+    &::before{
+      transform: rotate(45deg) translate(35px,-35px);
+    }
+    &::after{
+      transform: rotate(-45deg) translate(35px,35px);
+    }
+  }
+  .menu-list{
+    z-index:2;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in;
+    position: absolute;
+    right: -10px;
+    top:-10px;
+    background-color: $second-text-color;
+    padding-top:40px;
+    opacity: .8;
+    li{
+      padding:10px 80px 10px 20px;
+      a{
+        color: $text-color;
+      }
+      &:hover{
+        a{
+          color:$text-content-color;
+        }
+      }
+    }
+  }
+  .menu-mobile{
+    
+    visibility: visible;
+      opacity: 1;
+  }
+}
+@media screen and(max-width:875px) {
+  .header {
+    .container {
+    }
+    &-logo {
+      margin: 0;
+    }
+    &-menu {
+      gap: 35px;
+    }
+  }
+}
+@media screen and(max-width:653px) {
+  .header {
+    &-logo {
+      img {
+        max-width: 80%;
+      }
+    }
+    &-menu {
+      display: none;
+    }
+    .menu-icon {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      &:focus {
+      }
+    }
+  }
+}

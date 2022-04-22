@@ -1,0 +1,36 @@
+@import "./variable";
+body {
+  line-height: 1;
+  font-family: $font;
+  color: $text-color;
+  font-weight: 600;
+}
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+button {
+  padding: 16px 58.5px;
+  border-radius: 30px;
+  outline: none;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+}
+li {
+  list-style: none;
+}
+@media screen and(max-width:991px) {
+  button{
+    padding:10px 30px;
+  }
+}
+@media screen and(max-width:875px) {
+  button{
+    border: 1px solid $text-content-color;
+  }
+}

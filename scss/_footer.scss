@@ -1,0 +1,32 @@
+.footer{
+  display: flex;
+  margin:0 8%;
+  justify-content: space-between;
+  align-items: center;
+  
+  &-logo{
+    margin:28px 0 ;
+  }
+  &-social{
+    display: flex;
+    gap:24px;
+    img{
+      width:40px;
+      height:40px;
+    }
+  }
+}
+@media screen and(max-width:875px) {
+  .footer{
+    margin:4% 8%;
+    &-logo{
+      display: none;
+    }
+  }
+}
+@media screen and(max-width:653px) {
+  .footer{
+    gap:20px;
+    flex-direction: column;
+  }
+}
